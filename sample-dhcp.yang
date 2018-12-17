@@ -27,6 +27,10 @@ module dhcp {
     leaf default-lease-time {
       type uint32;
       units seconds;
+      must 'current() <= ../max-lease-time' {
+	error-message
+	  "The default-lease-time must be less than max-lease-time";
+      }
       default 600;
     }
     
