@@ -44,6 +44,28 @@ module dhcp {
 	uses subnet-list;
       }
     }
+    
+    container status {
+      config false;
+      list leases {
+	key address;
+	
+	leaf address { type inet:ip-address; }
+	leaf starts { type yang:date-and-time; }
+	leaf ends { type yang:date-and-time; }
+	
+	container hardware {
+	  leaf type {
+	    type enumeration {
+	      enum "ethernet";
+	      enum "token-ring";
+	      enum "fddi";
+	    }
+	  }
+	  leaf address { type yang:phys-address; }
+	}
+      }
+    }
   }
 
   grouping subnet-list {
