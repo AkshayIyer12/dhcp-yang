@@ -1,0 +1,15 @@
+module dhcp {
+  namespace "http://yang-central.org/ns/example/dhcp";
+  prefix dhcp;
+  
+  import ietf-yang-types { prefix yang; }
+  import ietf-inet-types { prefix inet; }
+  
+  type yang: date-and-time;
+  
+  organization
+    "yang-central.org";
+  description
+    "Partial data model for DHCP, based on the config of
+     the ISC dhcp reference implementation.";
+}
